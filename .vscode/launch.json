@@ -1,0 +1,20 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      // "preLaunchTask": "preRun",
+      "type": "cppdbg",
+      "name": "ESP32 OpenOCD",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/build",
+      "program": "${workspaceFolder}/build/DrugAbuseModule.elf",
+      "miDebuggerPath": "C:/Users/rapps/.espressif/tools/xtensa-esp-elf-gdb/12.1_20231023/xtensa-esp-elf-gdb/bin/xtensa-esp32-elf-gdb.exe",
+      "setupCommands": [
+          {"text": "target remote 127.0.0.1:3333"},
+          {"text": "set remote hardware-watchpoint-limit 2"},
+          {"text": "monitor reset halt"},
+          {"text": "flushregs"}
+        ]
+    }
+  ]
+}
