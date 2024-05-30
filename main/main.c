@@ -5,18 +5,7 @@
 #include "driver/gpio.h"
 #include "sdkconfig.h"
 #include "esp_log.h"
-
-/**
- * This is an example which echos any data it receives on configured UART back to the sender,
- * with hardware flow control turned off. It does not use UART driver event queue.
- *
- * - Port: configured UART
- * - Receive (Rx) buffer: on
- * - Transmit (Tx) buffer: off
- * - Flow control: off
- * - Event queue: off
- * - Pin assignment: see defines below (See Kconfig)
- */
+#include "include/hal_uart.h"
 
 #define ECHO_TEST_TXD (CONFIG_EXAMPLE_UART_TXD)
 #define ECHO_TEST_RXD (CONFIG_EXAMPLE_UART_RXD)
@@ -31,10 +20,13 @@ static void uart_task(void *args){
     while(1){
         printf("Hello World\n");
         vTaskDelay(1000 / portTICK_PERIOD_MS);
+        add(1, 2);
     }
 }
 
 void app_main(void)
 {
-    xTaskCreate(uart_task, "uart_task", 2048, NULL, 5, NULL);
+    int a = add(1, 2);
+    ESP_LOGI("main", "a = %d", a);
+    xTaskCreate(uart_task, "uart_task", ECHO_TASK_STACK_SIZE, NULL, 5, NULL);
 }

@@ -5,10 +5,11 @@
     "interface/ftdi/esp32_devkitj_v1.cfg",
     "target/esp32.cfg"
   ],
-  "idf.portWin": "COM6",
+  "idf.portWin": "COM5",
   "idf.notificationMode": "All",
   "idf.flashType": "JTAG",
   "files.associations": {
-    "uart.h": "c"
+    "uart.h": "c",
+    "uart_hal.h": "c"
   }
 }
