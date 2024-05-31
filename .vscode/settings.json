@@ -10,6 +10,7 @@
   "idf.flashType": "JTAG",
   "files.associations": {
     "uart.h": "c",
-    "uart_hal.h": "c"
+    "uart_hal.h": "c",
+    "task.h": "c"
   }
 }

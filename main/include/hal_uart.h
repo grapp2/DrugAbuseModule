@@ -1,1 +1,1 @@
-int add(int a, int b);
+uint8_t init_uart();
